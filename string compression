@@ -1,0 +1,37 @@
+//input: aaabbcccdddd
+//output: a3b2c3d4
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+        String str="aaabbcccdddeeeee";
+        char arr[]=str.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int count=1;
+        sb.append(arr[0]);
+        for(int i=1;i<str.length();i++)
+        {
+            char curr=arr[i];
+            char prev=arr[i-1];
+            if(prev==curr)
+            {
+                count++;
+            }
+            if(prev!=curr){
+                if(count>1){
+                sb.append(count);
+                sb.append(curr);
+                count=1;
+                }
+            }
+        }
+        if(count>1)
+        {
+            sb.append(count);
+        }
+        System.out.println(sb);
+    
+	}
+}
